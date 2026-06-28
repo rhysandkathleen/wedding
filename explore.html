@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore the Area · Kathleen &amp; Rhys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/mwf5wnf.css">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+/* ---- Places-to-eat carousel ---- */
+.eat-nav{display:flex;gap:8px;flex:none}
+.carousel-btn{
+  width:44px;height:44px;border-radius:999px;border:1px solid var(--line);
+  background:var(--surface);color:var(--accent-ink);box-shadow:var(--shadow-sm);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:transform .2s var(--ease),background .2s,color .2s,border-color .2s;
+}
+.carousel-btn:hover{transform:translateY(-2px);background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.carousel-btn:active{transform:translateY(0)}
+.carousel-btn svg{width:20px;height:20px}
+.eat-viewport{overflow:hidden}
+.eat-track{display:flex;gap:clamp(20px,3vw,34px);transition:transform .55s var(--ease);will-change:transform}
+.eat-card{flex:0 0 calc((100% - 2*clamp(20px,3vw,34px))/3);display:flex;flex-direction:column;min-width:0}
+@media(max-width:880px){.eat-card{flex-basis:calc((100% - clamp(20px,3vw,34px))/2)}}
+@media(max-width:600px){.eat-card{flex-basis:100%}}
+.eat-photo{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--radius);border:1px solid var(--line);display:block;background:var(--bg-2)}
+.eat-card .pill{align-self:flex-start}
+.eat-card h3{margin:12px 0 6px}
+.eat-desc{color:var(--soft);font-size:.94rem;margin:0 0 18px}
+.eat-card .maps-btn{margin-top:auto;width:100%;justify-content:center}
+/* "A note from K&R" — stylised tag above the description */
+.knr-note{margin:2px 0 18px}
+.knr-label{display:inline-flex;align-items:center;gap:.4em;font-family:var(--hand);font-style:var(--hand-style);
+  color:var(--accent-ink);font-size:1.02rem;line-height:1;margin-bottom:8px;letter-spacing:.01em}
+.knr-label .hh{font-family:var(--serif);font-size:.9em}
+.knr-text{color:var(--soft);font-size:.94rem;margin:0}
+.eat-card .maps-btn svg{width:18px;height:18px;flex:none}
+.eat-dots{display:flex;gap:9px;justify-content:center;margin-top:28px}
+.eat-dot{width:8px;height:8px;border-radius:999px;border:none;padding:0;cursor:pointer;
+  background:var(--line);transition:background .2s,transform .2s}
+.eat-dot.on{background:var(--accent-ink);transform:scale(1.35)}
+@media(prefers-reduced-motion:reduce){.eat-track{transition:none}}
+</style>
+</head>
+<body data-page="explore">
+
+<section class="pagehead" data-screen-label="Explore — Header">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Make the most of it" data-gr="Αξιοποιήστε το ταξίδι">Make the most of it</p>
+    <h1 data-en="Explore the area" data-gr="Εξερευνήστε την περιοχή">Explore the area</h1>
+    <p class="lead" data-en="You've come all this way — stay a few extra days! Aitoliko and the surrounding coast are full of long lunches, hidden beaches and golden-hour walks. Here are our favourites to get you started." data-gr="Ήρθατε τόσο μακριά — μείνετε λίγες μέρες παραπάνω! Το Αιτωλικό και η γύρω ακτή είναι γεμάτα με μεγάλα γεύματα, κρυμμένες παραλίες και βόλτες την ώρα του ηλιοβασιλέματος. Εδώ είναι τα αγαπημένα μας.">You've come all this way — stay a few extra days! Aitoliko and the surrounding coast are full of long lunches, hidden beaches and golden-hour walks. Here are our favourites to get you started.</p>
+  </div>
+</section>
+
+<!-- EAT -->
+<section class="section" style="padding-top:0" data-screen-label="Explore — Eat">
+  <div class="wrap">
+    <div class="section-label reveal">
+      <h2 data-en="Places to eat" data-gr="Πού να φάτε">Places to eat</h2>
+      <span class="ln"></span>
+      <div class="eat-nav">
+        <button class="carousel-btn prev" type="button" aria-label="Previous places" aria-controls="eat-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="carousel-btn next" type="button" aria-label="Next places" aria-controls="eat-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="eat-carousel reveal">
+      <div class="eat-viewport">
+        <div class="eat-track" id="eat-track">
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/eat/mezedopolio-mpotas.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Mezedopolio" data-gr="Μεζεδοπωλείο">Mezedopolio</span>
+            <h3 data-en="Mezedopolio Mpotas" data-gr="Μεζεδοπωλείο Μπότας">Mezedopolio Mpotas</h3>
+            <p class="eat-desc" data-en="A lively meze house — grilled meats, sausages and dips to share, washed down with ouzo or tsipouro." data-gr="Ζωντανό μεζεδοπωλείο — ψητά κρέατα, λουκάνικα και ντιπ για μοίρασμα, με ούζο ή τσίπουρο.">A lively meze house — grilled meats, sausages and dips to share, washed down with ouzo or tsipouro.</p>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="Μεζεδοπωλείο Μπότας, Γεωργίου Σεφέρη 14, Etoliko 304 00, Greece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/eat/to-koutouki.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Koutouki" data-gr="Κουτούκι">Koutouki</span>
+            <h3 data-en="To Koutouki" data-gr="Το Κουτούκι">To Koutouki</h3>
+            <p class="eat-desc" data-en="A traditional koutouki for small plates and mezedes — Greek salad, feta, olives and grilled bites." data-gr="Παραδοσιακό κουτούκι για μεζέδες — χωριάτικη, φέτα, ελιές και ψητά στη σχάρα.">A traditional koutouki for small plates and mezedes — Greek salad, feta, olives and grilled bites.</p>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="Το Κουτούκι, Γ. Σεφέρη 7, Etoliko 304 00, Greece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/eat/anatolikon.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Taverna" data-gr="Ταβέρνα">Taverna</span>
+            <h3 data-en="Anatolikón" data-gr="Ανατολικόν">Anatolikón</h3>
+            <p class="eat-desc" data-en="A homely taverna serving classic Greek cooked dishes and hearty pasta in generous portions." data-gr="Φιλόξενη ταβέρνα με κλασικά μαγειρευτά και χορταστικά ζυμαρικά σε γενναιόδωρες μερίδες.">A homely taverna serving classic Greek cooked dishes and hearty pasta in generous portions.</p>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="Ανατολικόν, Πλατεία Γρηγορίου Λιακατά 1, Etoliko 304 00, Greece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/eat/monomatos.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Fish taverna" data-gr="Ψαροταβέρνα">Fish taverna</span>
+            <h3 data-en="Monomatos" data-gr="Μονόματος">Monomatos</h3>
+            <p class="eat-desc" data-en="A waterside fish taverna — grilled catch of the day, fresh seafood and a chilled carafe of white." data-gr="Ψαροταβέρνα δίπλα στο νερό — φρέσκο ψάρι ημέρας στη σχάρα, θαλασσινά και κρύο λευκό κρασί.">A waterside fish taverna — grilled catch of the day, fresh seafood and a chilled carafe of white.</p>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="Μονόματος, Βασ. Παύλου, Etoliko 304 00, Greece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/eat/alatiera.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Café" data-gr="Καφέ">Café</span>
+            <h3 data-en="Alatiera" data-gr="Αλατιέρα">Alatiera</h3>
+            <p class="eat-desc" data-en="A laid-back café for freddo coffee, brunch and sweet pancakes — a perfect morning or afternoon stop." data-gr="Χαλαρό café για freddo, brunch και γλυκά pancakes — ιδανική στάση για πρωί ή απόγευμα.">A laid-back café for freddo coffee, brunch and sweet pancakes — a perfect morning or afternoon stop.</p>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="Αλατιέρα, Epar.Od. Mesologgiou - Alikon Tourlidas 27, Missolonghi 302 00, Greece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/eat/the-balcony.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Grill taverna" data-gr="Ψησταριά">Grill taverna</span>
+            <h3 data-en="The Balcony" data-gr="Το Μπαλκόνι">The Balcony</h3>
+            <p class="eat-desc" data-en="Chargrilled meats, lamb chops and Greek salad — with a balcony view to match the name." data-gr="Ψητά στα κάρβουνα, παϊδάκια και χωριάτικη — με θέα από το μπαλκόνι αντάξια του ονόματος.">Chargrilled meats, lamb chops and Greek salad — with a balcony view to match the name.</p>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="Το Μπαλκόνι, Epar.Od. Etolikou - Stamnas 247, Stamna 304 00, Greece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/eat/revekis.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Grill house" data-gr="Ψησταριά">Grill house</span>
+            <h3 data-en="Revekis Grill-Taverna" data-gr="Ψησταριά-Ταβέρνα Ρεβέκης">Revekis Grill-Taverna</h3>
+            <p class="eat-desc" data-en="A classic Greek grill house — skewers, souvlaki and grilled meats served with crispy chips." data-gr="Κλασική ψησταριά — σουβλάκι, καλαμάκια και ψητά κρέατα με τραγανές πατάτες.">A classic Greek grill house — skewers, souvlaki and grilled meats served with crispy chips.</p>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="Ψησταριά-Ταβέρνα Ρεβέκης, Papadiamantopoulou, Missolonghi 302 00, Greece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/eat/artopoiites.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Bakery" data-gr="Αρτοποιείο">Bakery</span>
+            <h3 data-en="Artopoiētes" data-gr="Αρτοποιητές">Artopoiētes</h3>
+            <p class="eat-desc" data-en="The neighbourhood bakery — fresh bread, croissants, savoury pies and pastries for breakfast on the go." data-gr="Ο φούρνος της γειτονιάς — φρέσκο ψωμί, κρουασάν, πίτες και γλυκά για πρωινό στο πόδι.">The neighbourhood bakery — fresh bread, croissants, savoury pies and pastries for breakfast on the go.</p>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="38.437056,21.352389"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+        </div>
+      </div>
+      <div class="eat-dots" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DRINK -->
+<section class="section bg-2" data-screen-label="Explore — Drink">
+  <div class="wrap">
+    <div class="section-label reveal">
+      <h2 data-en="Places to drink" data-gr="Πού να πιείτε">Places to drink</h2>
+      <span class="ln"></span>
+      <div class="eat-nav">
+        <button class="carousel-btn prev" type="button" aria-label="Previous places" aria-controls="drink-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="carousel-btn next" type="button" aria-label="Next places" aria-controls="drink-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="eat-carousel reveal">
+      <div class="eat-viewport">
+        <div class="eat-track" id="drink-track">
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/drink/lagoon-waterfront.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Coffee &amp; drinks" data-gr="Καφές &amp; ποτά">Coffee &amp; drinks</span>
+            <h3 data-en="Lagoon Waterfront" data-gr="Παραλία Αιτωλικού">Lagoon Waterfront</h3>
+            <p class="eat-desc" data-en="A series of cafes one next to the other that turn into relaxed bars at night. They all include brunch and food options if you get peckish." data-gr="Μια σειρά από καφέ, το ένα δίπλα στο άλλο, που τα βράδια γίνονται χαλαρά μπαρ. Όλα προσφέρουν brunch και φαγητό αν πεινάσετε.">A series of cafes one next to the other that turn into relaxed bars at night. They all include brunch and food options if you get peckish.</p>
+            <div class="knr-note">
+              <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+              <p class="knr-text" data-en="We'll be in one of these, come get a drink!" data-gr="Θα είμαστε σε ένα από αυτά, ελάτε για ένα ποτό!">We'll be in one of these, come get a drink!</p>
+            </div>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="Παραλία Αιτωλικού, Άστιγγος, Etoliko 304 00, Greece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/drink/town-square.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Evening drinks" data-gr="Βραδινό ποτό">Evening drinks</span>
+            <h3 data-en="Town Square" data-gr="Πλατεία">Town Square</h3>
+            <p class="eat-desc" data-en="The main town square of Aitoliko, with plenty of food and drink options for day and night." data-gr="Η κεντρική πλατεία του Αιτωλικού, με πολλές επιλογές φαγητού και ποτού, μέρα και νύχτα.">The main town square of Aitoliko, with plenty of food and drink options for day and night.</p>
+            <div class="knr-note">
+              <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+              <p class="knr-text" data-en="For the breezy nights" data-gr="Για τις δροσερές βραδιές">For the breezy nights</p>
+            </div>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="Κεντρική πλατεία, Iera Poli Messologgiou 304 00, Greece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/drink/marina.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="All-day drinks" data-gr="Ποτά όλη μέρα">All-day drinks</span>
+            <h3 data-en="Marina" data-gr="Λιμάνι">Marina</h3>
+            <p class="eat-desc" data-en="Plenty of food and drink options right next to the water in Mesolonghi. Alatiera is the most popular with the locals and worth checking out." data-gr="Πολλές επιλογές φαγητού και ποτού δίπλα στο νερό στο Μεσολόγγι. Το Alatiera είναι το πιο δημοφιλές στους ντόπιους και αξίζει μια επίσκεψη.">Plenty of food and drink options right next to the water in Mesolonghi. Alatiera is the most popular with the locals and worth checking out.</p>
+            <div class="knr-note">
+              <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+              <p class="knr-text" data-en="Sunset views and good vibes" data-gr="Θέα στο ηλιοβασίλεμα και καλή διάθεση">Sunset views and good vibes</p>
+            </div>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="Μαρίνα, Iera Poli Messologgiou 304 00, Greece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/drink/daluz.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="All-day &amp; late-night bar" data-gr="Μπαρ όλη μέρα / αργά">All-day &amp; late-night bar</span>
+            <h3 data-en="Daluz" data-gr="Daluz">Daluz</h3>
+            <p class="eat-desc" data-en="A lovely coffee and bar spot in the middle of town. If you fancy a quick coffee in the intimate streets of Mesologgi or a night out, this is the spot." data-gr="Ένα υπέροχο στέκι για καφέ και ποτό στο κέντρο της πόλης. Είτε για έναν γρήγορο καφέ στα γραφικά σοκάκια του Μεσολογγίου είτε για βραδινή έξοδο, αυτό είναι το μέρος.">A lovely coffee and bar spot in the middle of town. If you fancy a quick coffee in the intimate streets of Mesologgi or a night out, this is the spot.</p>
+            <div class="knr-note">
+              <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+              <p class="knr-text" data-en="Say hello to cousin Panos from us!" data-gr="Πείτε ένα γεια στον ξάδελφο Πάνο από εμάς!">Say hello to cousin Panos from us!</p>
+            </div>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="Daluz, Makri 6, Missolonghi 302 00, Greece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+        </div>
+      </div>
+      <div class="eat-dots" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DO & SEE -->
+<section class="section" data-screen-label="Explore — Do &amp; See">
+  <div class="wrap">
+    <div class="section-label reveal">
+      <h2 data-en="Things to do and see" data-gr="Τι να κάνετε και να δείτε">Things to do and see</h2>
+      <span class="ln"></span>
+      <div class="eat-nav">
+        <button class="carousel-btn prev" type="button" aria-label="Previous" aria-controls="do-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="carousel-btn next" type="button" aria-label="Next" aria-controls="do-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="eat-carousel reveal">
+      <div class="eat-viewport">
+        <div class="eat-track" id="do-track">
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/do/louros-beach.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Beach" data-gr="Παραλία">Beach</span>
+            <h3 data-en="Louros Beach" data-gr="Παραλία Λούρος">Louros Beach</h3>
+            <div class="knr-note">
+              <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+              <p class="knr-text" data-en="The locals' favourite spot for a swim. Ibiza Beach Bar has the music and drinks. Ask us for transport recommendations." data-gr="Το αγαπημένο μέρος των ντόπιων για βουτιές. Το Ibiza Beach Bar έχει τη μουσική και τα ποτά. Ρωτήστε μας για μεταφορά.">The locals' favourite spot for a swim. Ibiza Beach Bar has the music and drinks. Ask us for transport recommendations.</p>
+            </div>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="38.305417,21.201250"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/do/porto-skrofa.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Beach" data-gr="Παραλία">Beach</span>
+            <h3 data-en="Porto Skrofa Beach" data-gr="Πόρτο Σκρόφα">Porto Skrofa Beach</h3>
+            <div class="knr-note">
+              <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+              <p class="knr-text" data-en="Rhys's favourite beach. A bit further out, but food and drink available too." data-gr="Η αγαπημένη παραλία του Rhys. Λίγο πιο μακριά, αλλά υπάρχει και φαγητό και ποτό.">Rhys's favourite beach. A bit further out, but food and drink available too.</p>
+            </div>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="38.338389,21.113028"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/do/by-locals.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Activities" data-gr="Δραστηριότητες">Activities</span>
+            <h3 data-en="Messolonghi by Locals" data-gr="Messolonghi by Locals">Messolonghi by Locals</h3>
+            <p class="eat-desc" data-en="For events, organised activities, and things to do in the local area, check out Messolonghi by Locals." data-gr="Για εκδηλώσεις, οργανωμένες δραστηριότητες και πράγματα να κάνετε στην περιοχή, ρίξτε μια ματιά στο Messolonghi by Locals.">For events, organised activities, and things to do in the local area, check out Messolonghi by Locals.</p>
+            <div class="knr-note">
+              <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+              <p class="knr-text" data-en="Founded by a family friend. Let us know if you'd like to arrange anything!" data-gr="Ιδρύθηκε από φίλο της οικογένειας. Πείτε μας αν θέλετε να κανονίσουμε κάτι!">Founded by a family friend. Let us know if you'd like to arrange anything!</p>
+            </div>
+            <a class="btn outline maps-btn" href="https://messolonghibylocals.com/activities/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M19 14v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg><span data-en="Visit website" data-gr="Επίσκεψη ιστότοπου">Visit website</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/do/st-nicholas.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Walk &amp; viewpoint" data-gr="Περίπατος">Walk &amp; viewpoint</span>
+            <h3 data-en="Walk to St Nicholas Church" data-gr="Άγιος Νικόλαος Κρεμαστός">Walk to St Nicholas Church</h3>
+            <div class="knr-note">
+              <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+              <p class="knr-text" data-en="A walk up to a monk's old place of worship. Great views, a bit challenging to follow but unique. Ask us for the route!!" data-gr="Μια ανηφόρα προς τον παλιό τόπο λατρείας ενός μοναχού. Υπέροχη θέα, λίγο δύσκολο να ακολουθήσεις αλλά μοναδικό. Ρωτήστε μας για τη διαδρομή!!">A walk up to a monk's old place of worship. Great views, a bit challenging to follow but unique. Ask us for the route!!</p>
+            </div>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="F9HP+Q6 Iera Poli Messologgiou 302 00, Greece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+          <article class="card hover eat-card">
+            <img class="eat-photo" src="assets/do/salt-museum.jpg" alt="" loading="lazy" style="margin-bottom:16px">
+            <span class="pill" data-en="Museum" data-gr="Μουσείο">Museum</span>
+            <h3 data-en="Salt Museum" data-gr="Μουσείο Αλατιού">Salt Museum</h3>
+            <div class="knr-note">
+              <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+              <p class="knr-text" data-en="If you find yourself down this way, have a look in. Heard it's worthwhile." data-gr="Αν βρεθείτε από εκεί, ρίξτε μια ματιά. Ακούσαμε ότι αξίζει.">If you find yourself down this way, have a look in. Heard it's worthwhile.</p>
+            </div>
+            <a class="btn outline maps-btn" target="_blank" rel="noopener" data-maps="38.325111,21.427194"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-en="Open in Google Maps" data-gr="Άνοιγμα στο Google Maps">Open in Google Maps</span></a>
+          </article>
+        </div>
+      </div>
+      <div class="eat-dots" aria-hidden="true"></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section center" data-screen-label="Explore — CTA">
+  <div class="wrap reveal">
+    <div class="orn"><span class="line"></span><span class="heart">♡</span><span class="line"></span></div>
+    <h2 style="margin:20px 0 10px" data-en="Turn it into a holiday" data-gr="Κάντε το διακοπές">Turn it into a holiday</h2>
+    <p class="lead" style="margin:0 auto 28px" data-en="Sort your flights and a place to stay, and give yourself a few days either side to soak it all up." data-gr="Κανονίστε πτήσεις και διαμονή και δώστε στον εαυτό σας λίγες μέρες παραπάνω για να το απολαύσετε.">Sort your flights and a place to stay, and give yourself a few days either side to soak it all up.</p>
+    <div class="row" style="justify-content:center">
+      <a href="travel.html" class="btn ink" data-en="Travel →" data-gr="Ταξίδι →">Travel →</a>
+      <a href="accommodation.html" class="btn outline" data-en="Where to stay →" data-gr="Διαμονή →">Where to stay →</a>
+    </div>
+  </div>
+</section>
+
+<script src="assets/site.js"></script>
+<script>
+/* Places-to-eat: build Google Maps links + looping carousel */
+(function () {
+  function init() {
+    // 1. Build Google Maps hrefs from each card's data-maps query
+    document.querySelectorAll('.maps-btn[data-maps]').forEach(function (a) {
+      a.href = 'https://www.google.com/maps/search/?api=1&query=' +
+        encodeURIComponent(a.getAttribute('data-maps'));
+    });
+
+    // 2. Carousels (places to eat + places to drink)
+    document.querySelectorAll('.eat-carousel').forEach(setupCarousel);
+
+    function setupCarousel(root) {
+      var section = root.closest('section');
+      var viewport = root.querySelector('.eat-viewport');
+      var track = root.querySelector('.eat-track');
+      var dotsWrap = root.querySelector('.eat-dots');
+      var cards = Array.prototype.slice.call(track.children);
+      var prev = section.querySelector('.eat-nav .prev');
+      var next = section.querySelector('.eat-nav .next');
+      var index = 0;
+
+    function gapPx() {
+      var s = getComputedStyle(track);
+      return parseFloat(s.columnGap || s.gap) || 0;
+    }
+    function step() {
+      return cards[0].getBoundingClientRect().width + gapPx();
+    }
+    function maxIndex() {
+      var perView = Math.max(1, Math.round((viewport.clientWidth + gapPx()) / step()));
+      return Math.max(0, cards.length - perView);
+    }
+    function render() {
+      var mi = maxIndex();
+      if (index > mi) index = mi;
+      if (index < 0) index = 0;
+      track.style.transform = 'translateX(' + (-index * step()) + 'px)';
+      Array.prototype.forEach.call(dotsWrap.children, function (d, i) {
+        d.classList.toggle('on', i === index);
+      });
+    }
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      for (var i = 0; i <= maxIndex(); i++) {
+        (function (i) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'eat-dot' + (i === index ? ' on' : '');
+          b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+          b.addEventListener('click', function () { index = i; render(); });
+          dotsWrap.appendChild(b);
+        })(i);
+      }
+    }
+    prev.addEventListener('click', function () {
+      index = index <= 0 ? maxIndex() : index - 1;
+      render();
+    });
+    next.addEventListener('click', function () {
+      index = index >= maxIndex() ? 0 : index + 1;
+      render();
+    });
+    var rt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () { buildDots(); render(); }, 150);
+    });
+
+      buildDots();
+      render();
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</body>
+</html>

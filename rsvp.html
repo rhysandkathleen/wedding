@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSVP · Kathleen &amp; Rhys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/mwf5wnf.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="rsvp">
+
+<section class="pagehead" data-screen-label="RSVP — Header">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Kindly reply by 1 March 2027" data-gr="Απαντήστε έως 1 Μαρτίου 2027">Kindly reply by 1 March 2027</p>
+    <h1 data-en="Will you join us?" data-gr="Θα έρθετε;">Will you join us?</h1>
+    <p class="lead" data-en="Fill in the form below — one per household is perfect. You can always come back and update your answer before the deadline." data-gr="Συμπληρώστε την παρακάτω φόρμα — μία ανά νοικοκυριό είναι μια χαρά. Μπορείτε να επιστρέψετε και να αλλάξετε την απάντησή σας πριν τη λήξη.">Fill in the form below — one per household is perfect. You can always come back and update your answer before the deadline.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" data-screen-label="RSVP — Form">
+  <div class="wrap">
+
+    <!-- ============ FORM ============ -->
+    <form class="form card reveal" id="rsvp-form" novalidate style="padding:clamp(26px,4vw,46px)">
+
+      <div class="field">
+        <label data-en="Your name" data-gr="Το όνομά σας">Your name</label>
+        <input class="input" name="name" required data-en-ph="First and last name" data-gr-ph="Όνομα και επώνυμο" placeholder="First and last name">
+      </div>
+
+      <div class="field">
+        <label data-en="Email" data-gr="Email">Email</label>
+        <p class="hint" data-en="So we can reach you about any details." data-gr="Για να επικοινωνήσουμε μαζί σας για λεπτομέρειες.">So we can reach you about any details.</p>
+        <input class="input" type="email" name="email" required data-en-ph="you@email.com" data-gr-ph="you@email.com" placeholder="you@email.com">
+      </div>
+
+      <div class="field">
+        <label data-en="Will you be there?" data-gr="Θα είστε εκεί;">Will you be there?</label>
+        <div class="choice-row">
+          <label class="choice">
+            <input type="radio" name="attending" value="Joyfully accepts" required>
+            <span class="dot"></span>
+            <span data-en="Joyfully, yes!" data-gr="Φυσικά, ναι!">Joyfully, yes!</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="attending" value="Regretfully declines">
+            <span class="dot"></span>
+            <span data-en="Sadly, can't make it" data-gr="Δυστυχώς, δεν μπορώ">Sadly, can't make it</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- shown only when attending = yes -->
+      <div class="collapse" id="yes-fields">
+        <div class="field">
+          <label data-en="Who's coming?" data-gr="Ποιοι θα έρθουν;">Who's coming?</label>
+          <p class="hint" data-en="List everyone in your party, including yourself — full names help us with place cards." data-gr="Γράψτε όλους όσους θα έρθουν, μαζί με εσάς — τα ονοματεπώνυμα μας βοηθούν με τις καρτέλες.">List everyone in your party, including yourself — full names help us with place cards.</p>
+          <textarea class="textarea" name="guests" data-en-ph="Names here…" data-gr-ph="Ονόματα εδώ…" placeholder="Names here…"></textarea>
+        </div>
+
+        <div class="field">
+          <label data-en="Dietary requirements" data-gr="Διατροφικές απαιτήσεις">Dietary requirements</label>
+          <p class="hint" data-en="Allergies, vegetarian, vegan, gluten-free — anything the kitchen should know per guest." data-gr="Αλλεργίες, χορτοφαγικά, vegan, χωρίς γλουτένη — ό,τι πρέπει να ξέρει η κουζίνα.">Allergies, vegetarian, vegan, gluten-free — anything the kitchen should know per guest.</p>
+          <textarea class="textarea" name="dietary" data-en-ph="Let us know here…" data-gr-ph="Πείτε μας εδώ…" placeholder="Let us know here…"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="check">
+            <input type="checkbox" name="transport" value="Yes — needs transport">
+            <span class="box"><svg class="tk" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+            <span class="ct">
+              <strong data-en="Yes, I'd like transport to the venue" data-gr="Ναι, θα ήθελα μεταφορά προς τον χώρο">Yes, I'd like transport to the venue</strong>
+              <span data-en="We're trying to get a shuttle bus arranged, so need numbers to see if it's feasible. Please let us know if you'd be interested." data-gr="Προσπαθούμε να κανονίσουμε λεωφορείο μεταφοράς, οπότε χρειαζόμαστε αριθμούς για να δούμε αν είναι εφικτό. Πείτε μας αν θα σας ενδιέφερε.">We're trying to get a shuttle bus arranged, so need numbers to see if it's feasible. Please let us know if you'd be interested.</span>
+            </span>
+          </label>
+        </div>
+
+        <div class="field">
+          <label data-en="One song to get you dancing 💃" data-gr="Ένα τραγούδι για να σας σηκώσει στον χορό 💃">One song to get you dancing 💃</label>
+          <p class="hint" data-en="Give the DJ a hint — what's the track that guarantees you're on the floor?" data-gr="Δώστε μια ιδέα στον DJ — ποιο τραγούδι σας βάζει σίγουρα στην πίστα;">Give the DJ a hint — what's the track that guarantees you're on the floor?</p>
+          <input class="input" name="song" data-en-ph="Song — Artist" data-gr-ph="Τραγούδι — Καλλιτέχνης" placeholder="Song — Artist">
+        </div>
+      </div>
+
+      <!-- shown only when attending = no -->
+      <div class="collapse" id="no-fields">
+        <div class="field">
+          <label data-en="A note for us" data-gr="Ένα μήνυμα για εμάς">A note for us</label>
+          <p class="hint" data-en="We'll miss you! Leave a message if you like." data-gr="Θα μας λείψετε! Αφήστε ένα μήνυμα αν θέλετε.">We'll miss you! Leave a message if you like.</p>
+          <textarea class="textarea" name="message" data-en-ph="Wishing you both..." data-gr-ph="Σας εύχομαι..." placeholder="Wishing you both..."></textarea>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content:space-between;margin-top:8px">
+        <button type="submit" class="btn lg ink" id="submit-btn" data-en="Send our RSVP" data-gr="Στείλτε το RSVP">Send our RSVP</button>
+        <span class="form-status" id="form-status"></span>
+      </div>
+    </form>
+
+    <!-- ============ CONFIRMATION ============ -->
+    <div class="confirm card reveal" id="confirm" hidden style="padding:clamp(34px,5vw,60px);margin-top:20px">
+      <div class="seal">♡</div>
+      <p class="eyebrow" id="confirm-eyebrow" data-en="Got it — thank you!" data-gr="Το λάβαμε — ευχαριστούμε!">Got it — thank you!</p>
+      <h2 id="confirm-title" style="margin:.2em 0 .3em" data-en="You're on the list" data-gr="Είστε στη λίστα">You're on the list</h2>
+      <p class="lead" id="confirm-body" style="margin:0 auto" data-en="We can't wait to celebrate with you in Greece. Now go book those flights — the travel page will help." data-gr="Ανυπομονούμε να γιορτάσουμε μαζί σας στην Ελλάδα. Τώρα κλείστε τις πτήσεις σας — η σελίδα ταξιδιού θα σας βοηθήσει.">We can't wait to celebrate with you in Greece. Now go book those flights — the travel page will help.</p>
+      <div class="row" style="justify-content:center;margin-top:30px">
+        <a href="travel.html" class="btn ink" data-en="Plan your travel →" data-gr="Οργανώστε το ταξίδι →">Plan your travel →</a>
+        <button type="button" class="btn outline" id="edit-btn" data-en="Edit my answer" data-gr="Επεξεργασία απάντησης">Edit my answer</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="assets/site.js"></script>
+<script>
+/* =====================================================================
+   RSVP → GOOGLE SHEET
+   To make this write to your sheet, deploy the Apps Script in
+   SETUP-google-sheets.md as a Web App and paste its URL below.
+   Until then the form still works and saves answers in the browser.
+   ===================================================================== */
+const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyP9pb9kssUnfkHNV9YY4cxjCcm8G9m7XiRGaoohX1SZ4D0mPTn_E9pgjjOCCqH-EJh/exec'; // ← Apps Script Web App URL
+
+(function(){
+  const form = document.getElementById('rsvp-form');
+  const yes = document.getElementById('yes-fields');
+  const no  = document.getElementById('no-fields');
+  const status = document.getElementById('form-status');
+  const confirm = document.getElementById('confirm');
+  const submitBtn = document.getElementById('submit-btn');
+
+  // toggle conditional sections
+  form.querySelectorAll('input[name="attending"]').forEach(r => {
+    r.addEventListener('change', () => {
+      const going = form.attending.value === 'Joyfully accepts';
+      yes.classList.toggle('open', going);
+      no.classList.toggle('open', !going && form.attending.value);
+    });
+  });
+
+  function setConfirmCopy(going){
+    const eb = document.getElementById('confirm-eyebrow');
+    const tl = document.getElementById('confirm-title');
+    const bd = document.getElementById('confirm-body');
+    if(going){
+      eb.dataset.en='Got it — thank you!'; eb.dataset.gr='Το λάβαμε — ευχαριστούμε!';
+      tl.dataset.en="You're on the list"; tl.dataset.gr='Είστε στη λίστα';
+      bd.dataset.en="We can't wait to celebrate with you in Greece. Now go book those flights — the travel page will help.";
+      bd.dataset.gr='Ανυπομονούμε να γιορτάσουμε μαζί σας στην Ελλάδα. Τώρα κλείστε τις πτήσεις σας — η σελίδα ταξιδιού θα σας βοηθήσει.';
+    } else {
+      eb.dataset.en='Thank you for letting us know'; eb.dataset.gr='Ευχαριστούμε που μας ενημερώσατε';
+      tl.dataset.en="We'll miss you"; tl.dataset.gr='Θα μας λείψετε';
+      bd.dataset.en="We're so sorry you can't make it — we'll raise a glass to you in Greece and share all the photos afterwards.";
+      bd.dataset.gr='Λυπούμαστε πολύ που δεν μπορείτε να έρθετε — θα πιούμε στην υγειά σας στην Ελλάδα και θα μοιραστούμε όλες τις φωτογραφίες.';
+    }
+    // re-apply current language to the swapped copy
+    [eb,tl,bd].forEach(el=>{ const v=el.getAttribute('data-'+KR.getLang()); if(v!==null) el.innerHTML=v; });
+  }
+
+  function showConfirm(going){
+    setConfirmCopy(going);
+    form.hidden = true;
+    confirm.hidden = false;
+    confirm.classList.add('in');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  document.getElementById('edit-btn').addEventListener('click', () => {
+    confirm.hidden = true; form.hidden = false;
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if(!form.name.value.trim() || !form.email.value.trim() || !form.attending.value){
+      status.textContent = KR.t('Please add your name, email and a yes / no.','Συμπληρώστε όνομα, email και ναι / όχι.');
+      return;
+    }
+    const going = form.attending.value === 'Joyfully accepts';
+    const data = {
+      timestamp: new Date().toISOString(),
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      attending: form.attending.value,
+      guests: going ? form.guests.value.trim() : '',
+      dietary: going ? form.dietary.value.trim() : '',
+      transport: going ? (form.transport.checked ? 'Yes' : 'No') : '',
+      song: going ? form.song.value.trim() : '',
+      message: going ? '' : form.message.value.trim(),
+      language: KR.getLang()
+    };
+
+    // always keep a local backup
+    try {
+      const all = JSON.parse(localStorage.getItem('kr-rsvps')||'[]');
+      all.push(data); localStorage.setItem('kr-rsvps', JSON.stringify(all));
+    } catch(_){}
+
+    submitBtn.disabled = true;
+    status.textContent = KR.t('Sending…','Αποστολή…');
+
+    if (SHEET_ENDPOINT) {
+      try {
+        await fetch(SHEET_ENDPOINT, {
+          method:'POST', mode:'no-cors',
+          headers:{'Content-Type':'application/x-www-form-urlencoded'},
+          body: new URLSearchParams(data).toString()
+        });
+      } catch(err){ /* no-cors: we can't read the result; local backup covers us */ }
+    }
+
+    status.textContent = '';
+    submitBtn.disabled = false;
+    showConfirm(going);
+  });
+})();
+</script>
+</body>
+</html>

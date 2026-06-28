@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel &amp; Flights · Kathleen &amp; Rhys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/mwf5wnf.css">
+<link rel="stylesheet" href="assets/styles.css">
+<style>.grk{font-family:'berthold-block-w1g','Hanken Grotesk',sans-serif;font-weight:400}
+/* ---- Ionian islands carousel ---- */
+.eat-nav{display:flex;gap:8px;flex:none}
+.carousel-btn{width:44px;height:44px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--accent-ink);box-shadow:var(--shadow-sm);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s var(--ease),background .2s,color .2s,border-color .2s}
+.carousel-btn:hover{transform:translateY(-2px);background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.carousel-btn:active{transform:translateY(0)}
+.carousel-btn svg{width:20px;height:20px}
+.eat-viewport{overflow:hidden}
+.eat-track{display:flex;gap:clamp(20px,3vw,34px);transition:transform .55s var(--ease);will-change:transform;align-items:stretch}
+.eat-card{flex:0 0 calc((100% - 2*clamp(20px,3vw,34px))/3);display:flex;flex-direction:column;min-width:0}
+.eat-card .meta{margin-top:auto}
+@media(max-width:880px){.eat-card{flex-basis:calc((100% - clamp(20px,3vw,34px))/2)}}
+@media(max-width:600px){.eat-card{flex-basis:100%}}
+.eat-dots{display:flex;gap:9px;justify-content:center;margin-top:28px}
+.eat-dot{width:8px;height:8px;border-radius:999px;border:none;padding:0;cursor:pointer;background:var(--line);transition:background .2s,transform .2s}
+.eat-dot.on{background:var(--accent-ink);transform:scale(1.35)}
+@media(prefers-reduced-motion:reduce){.eat-track{transition:none}}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+</head>
+<body data-page="travel">
+
+<section class="pagehead" data-screen-label="Travel — Header">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Getting to Aitoliko" data-gr="Πώς θα φτάσετε στο Αιτωλικό">Getting to Aitoliko</p>
+    <h1 data-en="Travel &amp; flights" data-gr="Ταξίδι &amp; πτήσεις">Travel &amp; flights</h1>
+    <p class="lead" data-en="Aitoliko sits on the west coast of mainland Greece. Preveza is your closest, easiest airport — but if you fancy island-hopping before or after the wedding, the Ionian islands are right on the doorstep. Here's the lay of the land." data-gr="Το Αιτωλικό βρίσκεται στη δυτική ακτή της ηπειρωτικής Ελλάδας. Η Πρέβεζα είναι το πιο κοντινό και εύκολο αεροδρόμιο — αλλά αν θέλετε να επισκεφθείτε νησιά πριν ή μετά τον γάμο, τα Ιόνια είναι δίπλα σας.">Aitoliko sits on the west coast of mainland Greece. Preveza is your closest, easiest airport — but if you fancy island-hopping before or after the wedding, the Ionian islands are right on the doorstep. Here's the lay of the land.</p>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section tight" data-screen-label="Travel — Map">
+  <div class="wrap">
+    <div class="map-shell reveal"><div id="travel-map" class="leaflet-map" style="height:clamp(420px,60vh,640px)"></div></div>
+    <p class="center" style="color:var(--soft);font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;margin-top:18px" data-en="★ = Aitoliko (the wedding) · ✈ = airports · click any pin for details" data-gr="★ = Αιτωλικό (ο γάμος) · ✈ = αεροδρόμια · πατήστε ένα σημείο">★ = Aitoliko (the wedding) · ✈ = airports · click any pin for details</p>
+  </div>
+</section>
+
+<!-- CLOSEST -->
+<section class="section" style="padding-top:0" data-screen-label="Travel — Closest airport">
+  <div class="wrap">
+    <div class="section-label reveal"><h2 data-en="The easy option" data-gr="Η εύκολη επιλογή">The easy option</h2><span class="ln"></span></div>
+
+    <div class="card hover reveal" style="border-color:var(--accent-ink)">
+      <div class="airport-grid">
+        <div>
+          <div class="row" style="gap:10px"><span class="airport-code">PVK</span><span class="pill" data-en="Closest · ~1 hr 15 min drive" data-gr="Πλησιέστερο · ~1 ώρα 15 λεπτά">Closest · ~1 hr 15 min drive</span></div>
+          <h3 style="margin:12px 0 4px" data-en="Preveza / Aktion <span class='grk'>(Άκτιο)</span>" data-gr="Πρέβεζα / Άκτιο">Preveza / Aktion <span class="grk">(Άκτιο)</span></h3>
+          <p style="color:var(--soft)" data-en="By far the most convenient. A scenic 1¼-hour drive south along the coast brings you straight to Aitoliko. Seasonal summer flights run from the UK and several European cities — book early, as they're limited. Hire a car at the airport, or we can help arrange a transfer." data-gr="Μακράν το πιο βολικό. Μια γραφική διαδρομή 1¼ ώρας νότια κατά μήκος της ακτής σας φέρνει κατευθείαν στο Αιτωλικό. Καλοκαιρινές πτήσεις από το Ηνωμένο Βασίλειο και ευρωπαϊκές πόλεις — κλείστε νωρίς. Νοικιάστε αυτοκίνητο ή σας βοηθάμε με μεταφορά.">By far the most convenient. A scenic 1¼-hour drive south along the coast brings you straight to Aitoliko. Seasonal summer flights run from the UK and several European cities — book early, as they're limited. Hire a car at the airport, or we can help arrange a transfer.</p>
+          <div class="meta">
+            <span data-en="🚗 ~75 km · 1 hr 15 min" data-gr="🚗 ~75 χλμ · 1 ώρα 15 λεπτά">🚗 ~75 km · 1 hr 15 min</span>
+            <span data-en="✈ Seasonal summer flights" data-gr="✈ Εποχικές καλοκαιρινές πτήσεις">✈ Seasonal summer flights</span>
+          </div>
+        </div>
+        <a class="btn ink" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Preveza+Airport&destination=Aitoliko" data-en="Route →" data-gr="Διαδρομή →">Route →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATHENS -->
+<section class="section tight" style="padding-top:0" data-screen-label="Travel — Athens">
+  <div class="wrap">
+    <div class="section-label reveal"><h2 data-en="The reliable option" data-gr="Η αξιόπιστη επιλογή">The reliable option</h2><span class="ln"></span></div>
+    <div class="card hover reveal">
+      <div class="airport-grid">
+        <div>
+          <div class="row" style="gap:10px"><span class="airport-code">ATH</span><span class="pill" data-en="~3 hr 30 min drive" data-gr="~3 ώρες 30 λεπτά">~3 hr 30 min drive</span></div>
+          <h3 style="margin:12px 0 4px" data-en="Athens International" data-gr="Διεθνές Αθηνών">Athens International</h3>
+          <p style="color:var(--soft)" data-en="The fallback with the most flights, year-round, from almost everywhere. It's a straightforward (if longer) 3½-hour motorway drive west across the country — the road crosses the spectacular Rio–Antirrio bridge. Great if you want a couple of days in Athens first." data-gr="Η λύση με τις περισσότερες πτήσεις, όλο τον χρόνο, από παντού. Μια ξεκάθαρη (αν και μεγαλύτερη) διαδρομή 3½ ωρών δυτικά — ο δρόμος περνά τη θεαματική γέφυρα Ρίου–Αντιρρίου. Ιδανικό αν θέλετε λίγες μέρες στην Αθήνα.">The fallback with the most flights, year-round, from almost everywhere. It's a straightforward (if longer) 3½-hour motorway drive west across the country — the road crosses the spectacular Rio–Antirrio bridge. Great if you want a couple of days in Athens first.</p>
+          <div class="meta">
+            <span data-en="🚗 ~260 km · 3 hr 30 min" data-gr="🚗 ~260 χλμ · 3 ώρες 30 λεπτά">🚗 ~260 km · 3 hr 30 min</span>
+            <span data-en="✈ Year-round, many flights" data-gr="✈ Όλο τον χρόνο, πολλές πτήσεις">✈ Year-round, many flights</span>
+          </div>
+        </div>
+        <a class="btn ink" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Athens+Airport&destination=Aitoliko" data-en="Route →" data-gr="Διαδρομή →">Route →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ISLANDS -->
+<section class="section bg-2" data-screen-label="Travel — Islands">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:14px">
+      <p class="eyebrow" data-en="Make a holiday of it" data-gr="Κάντε το διακοπές">Make a holiday of it</p>
+      <h2 data-en="The Ionian islands" data-gr="Τα Ιόνια νησιά">The Ionian islands</h2>
+      <p class="lead" style="margin:14px auto 0" data-en="If you're tagging a beach holiday onto the trip, fly into one of these and reach the mainland by ferry. They each have their own airport with summer flights from across Europe." data-gr="Αν θέλετε να προσθέσετε διακοπές στην παραλία, πετάξτε σε ένα από αυτά και φτάστε στην ηπειρωτική χώρα με πλοίο. Το καθένα έχει δικό του αεροδρόμιο με καλοκαιρινές πτήσεις.">If you're tagging a beach holiday onto the trip, fly into one of these and reach the mainland by ferry. They each have their own airport with summer flights from across Europe.</p>
+    </div>
+
+    <div class="eat-carousel reveal" style="margin-top:30px">
+      <div class="row" style="justify-content:flex-end;margin-bottom:18px">
+        <div class="eat-nav">
+          <button class="carousel-btn prev" type="button" aria-label="Previous island" aria-controls="island-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></button>
+          <button class="carousel-btn next" type="button" aria-label="Next island" aria-controls="island-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+        </div>
+      </div>
+      <div class="eat-viewport">
+        <div class="eat-track" id="island-track">
+          <article class="card hover eat-card">
+            <div class="row" style="gap:8px"><span class="airport-code">PVK</span></div>
+            <h3 style="margin:14px 0 4px" data-en="Lefkada <span class='grk'>(Λευκάδα)</span>" data-gr="Λευκάδα">Lefkada <span class="grk">(Λευκάδα)</span></h3>
+            <p style="color:var(--soft);font-size:.95rem" data-en="The only Ionian island you can reach by car — a causeway links it straight to the mainland, no ferry needed. Fly into Preveza (PVK) just up the coast, then drive across. Famous for dramatic west-coast beaches like Porto Katsiki." data-gr="Το μοναδικό νησί του Ιονίου που φτάνετε με αυτοκίνητο — μια γέφυρα το συνδέει με την ηπειρωτική χώρα, χωρίς πλοίο. Πετάξτε στην Πρέβεζα (PVK) λίγο πιο πάνω στην ακτή και περάστε απέναντι. Φημισμένη για τις εντυπωσιακές δυτικές παραλίες όπως το Πόρτο Κατσίκι.">The only Ionian island you can reach by car — a causeway links it straight to the mainland, no ferry needed. Fly into Preveza (PVK) just up the coast, then drive across. Famous for dramatic west-coast beaches like Porto Katsiki.</p>
+            <div class="meta"><span data-en="🚗 Drive across · no ferry" data-gr="🚗 Με αυτοκίνητο · χωρίς πλοίο">🚗 Drive across · no ferry</span><span data-en="~30 min from Preveza" data-gr="~30 λεπτά από Πρέβεζα">~30 min from Preveza</span></div>
+          </article>
+          <article class="card hover eat-card">
+            <div class="row" style="gap:8px"><span class="airport-code">EFL</span></div>
+            <h3 style="margin:14px 0 4px" data-en="Kefalonia <span class='grk'>(Κεφαλονιά)</span>" data-gr="Κεφαλονιά">Kefalonia <span class="grk">(Κεφαλονιά)</span></h3>
+            <p style="color:var(--soft);font-size:.95rem" data-en="Turquoise coves and the famous Myrtos beach. Ferries run to Kyllini on the mainland; from there it's a pretty drive north to Aitoliko." data-gr="Τιρκουάζ όρμοι και η διάσημη παραλία Μύρτος. Πλοία προς την Κυλλήνη· από εκεί μια όμορφη διαδρομή βόρεια προς το Αιτωλικό.">Turquoise coves and the famous Myrtos beach. Ferries run to Kyllini on the mainland; from there it's a pretty drive north to Aitoliko.</p>
+            <div class="meta"><span data-en="⛴ Ferry + 🚗 drive" data-gr="⛴ Πλοίο + 🚗">⛴ Ferry + 🚗 drive</span><span data-en="~4 hr total" data-gr="~4 ώρες">~4 hr total</span></div>
+          </article>
+          <article class="card hover eat-card">
+            <div class="row" style="gap:8px"><span class="airport-code">ZTH</span></div>
+            <h3 style="margin:14px 0 4px" data-en="Zakynthos / Zante <span class='grk'>(Ζάκυνθος)</span>" data-gr="Ζάκυνθος">Zakynthos / Zante <span class="grk">(Ζάκυνθος)</span></h3>
+            <p style="color:var(--soft);font-size:.95rem" data-en="Home of Shipwreck Beach and loggerhead turtles. The Kyllini ferry connects you to the mainland and the road north to us." data-gr="Πατρίδα του Ναυαγίου και των θαλάσσιων χελωνών. Το πλοίο της Κυλλήνης σας συνδέει με την ηπειρωτική χώρα.">Home of Shipwreck Beach and loggerhead turtles. The Kyllini ferry connects you to the mainland and the road north to us.</p>
+            <div class="meta"><span data-en="⛴ Ferry + 🚗 drive" data-gr="⛴ Πλοίο + 🚗">⛴ Ferry + 🚗 drive</span><span data-en="~3 hr 30 min" data-gr="~3 ώρες 30 λεπτά">~3 hr 30 min</span></div>
+          </article>
+          <article class="card hover eat-card">
+            <div class="row" style="gap:8px"><span class="airport-code">CFU</span></div>
+            <h3 style="margin:14px 0 4px" data-en="Corfu <span class='grk'>(Κέρκυρα)</span>" data-gr="Κέρκυρα">Corfu <span class="grk">(Κέρκυρα)</span></h3>
+            <p style="color:var(--soft);font-size:.95rem" data-en="The greenest, most cosmopolitan Ionian island. Reach the mainland via the Igoumenitsa ferry, then drive down. Best for a longer, lush escape." data-gr="Το πιο πράσινο, κοσμοπολίτικο νησί του Ιονίου. Φτάστε στην ηπειρωτική χώρα με το πλοίο της Ηγουμενίτσας. Ιδανικό για μια πιο μεγάλη απόδραση.">The greenest, most cosmopolitan Ionian island. Reach the mainland via the Igoumenitsa ferry, then drive down. Best for a longer, lush escape.</p>
+            <div class="meta"><span data-en="⛴ Ferry + 🚗 drive" data-gr="⛴ Πλοίο + 🚗">⛴ Ferry + 🚗 drive</span><span data-en="~4 hr total" data-gr="~4 ώρες">~4 hr total</span></div>
+          </article>
+        </div>
+      </div>
+      <div class="eat-dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GETTING AROUND -->
+<section class="section" data-screen-label="Travel — Getting around">
+  <div class="wrap">
+    <div class="grid cols-2" style="align-items:center;gap:clamp(30px,6vw,64px)">
+      <div class="reveal">
+        <p class="eyebrow" data-en="On the ground" data-gr="Επί τόπου">On the ground</p>
+        <h2 style="margin:.2em 0 .4em" data-en="A hire car makes life easy" data-gr="Ένα ενοικιαζόμενο αυτοκίνητο βοηθά">A hire car makes life easy</h2>
+        <p class="lead" data-en="Aitoliko is small and rural, and the loveliest beaches, tavernas and the venues are best reached by car. We'd really recommend renting one between a few of you — it's inexpensive and gives you freedom. Taxis are common in and around the area too. We're looking into the possibility of sorting a shuttle bus to and from the after party venue, so please let us know on your RSVP if you'd be interested." data-gr="Το Αιτωλικό είναι μικρό, και οι πιο όμορφες παραλίες, ταβέρνες και οι χώροι προσεγγίζονται καλύτερα με αυτοκίνητο. Προτείνουμε να νοικιάσετε ένα μεταξύ σας — είναι φθηνό και σας δίνει ελευθερία. Τα ταξί είναι επίσης συνηθισμένα στην περιοχή. Εξετάζουμε το ενδεχόμενο να κανονίσουμε λεωφορείο μεταφοράς από/προς τον χώρο του πάρτι, οπότε πείτε μας στο RSVP αν θα σας ενδιέφερε.">Aitoliko is small and rural, and the loveliest beaches, tavernas and the venues are best reached by car. We'd really recommend renting one between a few of you — it's inexpensive and gives you freedom. Taxis are common in and around the area too. We're looking into the possibility of sorting a shuttle bus to and from the after party venue, so please let us know on your RSVP if you'd be interested.</p>
+        <a href="rsvp.html" class="btn ink" style="margin-top:20px" data-en="Request transport on your RSVP →" data-gr="Ζητήστε μεταφορά στο RSVP →">Request transport on your RSVP →</a>
+      </div>
+      <div class="reveal grid" style="gap:16px">
+        <div class="note-box"><p class="eyebrow" data-en="Tip" data-gr="Συμβουλή">Tip</p><p data-en="Book flights and the hire car as early as you can — June is peak season and prices climb fast." data-gr="Κλείστε πτήσεις και αυτοκίνητο όσο πιο νωρίς γίνεται — ο Ιούνιος είναι περίοδος αιχμής.">Book flights and the hire car as early as you can — June is peak season and prices climb fast.</p></div>
+        <div class="note-box"><p class="eyebrow" data-en="Tip" data-gr="Συμβουλή">Tip</p><p data-en="Ferry timetables for the islands change seasonally — check ferryhopper.com once your dates are set." data-gr="Τα δρομολόγια των πλοίων αλλάζουν εποχικά — ελέγξτε στο ferryhopper.com.">Ferry timetables for the islands change seasonally — check ferryhopper.com once your dates are set.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+  function pin(glyph, big){ return L.divIcon({ className:'', html:'<div class="map-pin"'+(big?' style="width:50px;height:50px;background:var(--accent-ink)"':'')+'><span'+(big?' style="font-size:1.3rem"':'')+'>'+glyph+'</span></div>', iconSize:big?[50,50]:[40,40], iconAnchor:big?[10,46]:[8,38], popupAnchor:big?[15,-42]:[12,-34] }); }
+  function init(){
+    if(typeof L==='undefined') return;
+    var map=L.map('travel-map',{scrollWheelZoom:false}).setView([38.6,21.3],7);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19}).addTo(map);
+
+    var aitoliko=[38.434,21.353];
+    var places=[
+      {ll:[38.925,20.765],g:'✈',code:'PVK',en:'Preveza / Aktion',gr:'Πρέβεζα / Άκτιο',deten:'Closest — ~1 hr 15 min drive',detgr:'Πλησιέστερο — ~1 ώρα 15 λεπτά'},
+      {ll:[37.936,23.945],g:'✈',code:'ATH',en:'Athens',gr:'Αθήνα',deten:'~3 hr 30 min drive',detgr:'~3 ώρες 30 λεπτά'},
+      {ll:[39.601,19.911],g:'✈',code:'CFU',en:'Corfu',gr:'Κέρκυρα',deten:'Ferry + drive — ~4 hr',detgr:'Πλοίο + οδήγηση — ~4 ώρες'},
+      {ll:[38.120,20.500],g:'✈',code:'EFL',en:'Kefalonia',gr:'Κεφαλονιά',deten:'Ferry + drive — ~4 hr',detgr:'Πλοίο + οδήγηση — ~4 ώρες'},
+      {ll:[37.751,20.884],g:'✈',code:'ZTH',en:'Zakynthos',gr:'Ζάκυνθος',deten:'Ferry + drive — ~3 hr 30 min',detgr:'Πλοίο + οδήγηση — ~3 ώρες 30 λεπτά'}
+    ];
+
+    L.marker(aitoliko,{icon:pin('★',true),zIndexOffset:1000}).addTo(map).bindPopup(
+      '<div class="pop"><h4>'+KR.t('Aitoliko','Αιτωλικό')+'</h4><div class="gr">'+KR.t('The wedding ♡','Ο γάμος ♡')+'</div></div>').openPopup();
+
+    places.forEach(function(p){
+      L.polyline([aitoliko,p.ll],{color:getComputedStyle(document.documentElement).getPropertyValue('--accent-ink').trim()||'#d98a6b',weight:1.5,opacity:.45,dashArray:'4 6'}).addTo(map);
+      L.marker(p.ll,{icon:pin(p.g)}).addTo(map).bindPopup(
+        '<div class="pop"><h4>'+KR.t(p.en,p.gr)+' <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent-ink)">'+p.code+'</span></h4>'+
+        '<p>'+KR.t(p.deten,p.detgr)+'</p>'+
+        '<a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(p.en+' Airport')+'&destination=Aitoliko">'+KR.t('Route to Aitoliko →','Διαδρομή προς Αιτωλικό →')+'</a></div>');
+    });
+
+    map.fitBounds(L.latLngBounds(places.map(function(p){return p.ll;}).concat([aitoliko])).pad(0.15));
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+
+/* Ionian islands carousel */
+(function(){
+  function init(){
+    document.querySelectorAll('.eat-carousel').forEach(setupCarousel);
+    function setupCarousel(root){
+      var section=root.closest('section');
+      var viewport=root.querySelector('.eat-viewport');
+      var track=root.querySelector('.eat-track');
+      var dotsWrap=root.querySelector('.eat-dots');
+      var cards=Array.prototype.slice.call(track.children);
+      var prev=section.querySelector('.eat-nav .prev');
+      var next=section.querySelector('.eat-nav .next');
+      var index=0;
+      function gapPx(){var s=getComputedStyle(track);return parseFloat(s.columnGap||s.gap)||0;}
+      function step(){return cards[0].getBoundingClientRect().width+gapPx();}
+      function maxIndex(){var perView=Math.max(1,Math.round((viewport.clientWidth+gapPx())/step()));return Math.max(0,cards.length-perView);}
+      function render(){
+        var mi=maxIndex();
+        if(index>mi) index=mi;
+        if(index<0) index=0;
+        track.style.transform='translateX('+(-index*step())+'px)';
+        Array.prototype.forEach.call(dotsWrap.children,function(d,i){d.classList.toggle('on',i===index);});
+      }
+      function buildDots(){
+        dotsWrap.innerHTML='';
+        for(var i=0;i<=maxIndex();i++){
+          (function(i){
+            var b=document.createElement('button');
+            b.type='button';
+            b.className='eat-dot'+(i===index?' on':'');
+            b.setAttribute('aria-label','Go to slide '+(i+1));
+            b.addEventListener('click',function(){index=i;render();});
+            dotsWrap.appendChild(b);
+          })(i);
+        }
+      }
+      prev.addEventListener('click',function(){index=index<=0?maxIndex():index-1;render();});
+      next.addEventListener('click',function(){index=index>=maxIndex()?0:index+1;render();});
+      var rt;
+      window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){buildDots();render();},150);});
+      buildDots();
+      render();
+    }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+</body>
+</html>

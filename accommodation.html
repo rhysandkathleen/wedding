@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where to Stay · Kathleen &amp; Rhys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/mwf5wnf.css">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+/* Places-to-stay cards */
+.stay-media{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.stay-mini{aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--bg-2)}
+.stay-mini .leaflet-container{height:100%!important;width:100%!important;background:var(--bg-2)!important}
+.stay-photo{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--radius);border:1px solid var(--line);display:block;background:var(--bg-2)}
+.stay-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ptier{font-family:var(--mono);font-weight:700;color:var(--accent-ink);letter-spacing:2px;font-size:.95rem;white-space:nowrap}
+.ptier .off{color:var(--line)}
+.stay-desc{color:var(--soft);font-size:.94rem;margin:12px 0 0}
+.knr-note{margin:14px 0 0}
+.knr-label{display:inline-flex;align-items:center;gap:.4em;font-family:var(--hand);font-style:var(--hand-style);color:var(--accent-ink);font-size:1.02rem;line-height:1;margin-bottom:8px;letter-spacing:.01em}
+.knr-label .hh{font-family:var(--serif);font-size:.9em}
+.knr-text{color:var(--soft);font-size:.94rem;margin:0}
+.stay-card .meta{margin-top:14px}
+.stay-card .btn{margin-top:18px}
+</style>
+</head>
+<body data-page="accommodation">
+
+<section class="pagehead" data-screen-label="Stay — Header">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Where to lay your head" data-gr="Πού θα μείνετε">Where to lay your head</p>
+    <h1 data-en="Where to stay" data-gr="Διαμονή">Where to stay</h1>
+    <p class="lead" data-en="A hand-picked mix of hotels, guesthouses and homes around Aitoliko and nearby Messolonghi — from sea-view rooms to whole villas for groups. We'll keep adding to this as we scout, so check back. Book early: June fills up." data-gr="Μια προσεκτικά επιλεγμένη συλλογή από ξενοδοχεία, ξενώνες και σπίτια γύρω από το Αιτωλικό και το Μεσολόγγι — από δωμάτια με θέα στη θάλασσα μέχρι ολόκληρες βίλες για παρέες. Θα προσθέτουμε συνεχώς, οπότε ξαναδείτε. Κλείστε νωρίς.">A hand-picked mix of hotels, guesthouses and homes around Aitoliko and nearby Messolonghi — from sea-view rooms to whole villas for groups. We'll keep adding to this as we scout, so check back. Book early: June fills up.</p>
+  </div>
+</section>
+
+<!-- PLACES TO STAY -->
+<section class="section tight" style="padding-top:0" data-screen-label="Stay — Places to stay">
+  <div class="wrap">
+    <div class="section-label reveal"><h2 data-en="Places to stay" data-gr="Πού να μείνετε">Places to stay</h2><span class="ln"></span></div>
+    <p class="lead reveal" style="margin-bottom:34px" data-en="A few places we'd recommend around Messolonghi and Aitoliko — from a simple family-run studio to a boutique stay. Tap a listing to see it and book." data-gr="Μερικά μέρη που προτείνουμε γύρω από το Μεσολόγγι και το Αιτωλικό — από απλό οικογενειακό στούντιο μέχρι boutique διαμονή. Πατήστε μια αγγελία για να τη δείτε και να κλείσετε.">A few places we'd recommend around Messolonghi and Aitoliko — from a simple family-run studio to a boutique stay. Tap a listing to see it and book.</p>
+    <div class="grid cols-2">
+
+      <article class="card hover reveal stay-card">
+        <div class="stay-media">
+          <div class="stay-mini" id="mini-alexandra"></div>
+          <img class="stay-photo" src="assets/stay/alexandra.webp" alt="" loading="lazy">
+        </div>
+        <div class="stay-head">
+          <span class="pill" data-en="Studios" data-gr="Στούντιο">Studios</span>
+          <span class="ptier" title="Price per night (out of 3)">€<span class="off">€€</span></span>
+        </div>
+        <h3 style="margin:12px 0 0" data-en="Alexandra Studio" data-gr="Alexandra Studio">Alexandra Studio</h3>
+        <p class="stay-desc" data-en="Simple, self-catering studios with their own kitchen, a few steps from the Garden of Heroes." data-gr="Απλά στούντιο με δική τους κουζίνα, λίγα βήματα από τον Κήπο των Ηρώων.">Simple, self-catering studios with their own kitchen, a few steps from the Garden of Heroes.</p>
+        <div class="knr-note">
+          <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+          <p class="knr-text" data-en="The owner is a family friend and a good option for anyone wanting something simple in a good location. You'll need to call to book — or let us know and we can sort it out for you!" data-gr="Ο ιδιοκτήτης είναι φίλος της οικογένειας και καλή επιλογή για κάτι απλό σε καλή τοποθεσία. Θα χρειαστεί να καλέσετε για κράτηση — ή πείτε μας και το κανονίζουμε εμείς!">The owner is a family friend and a good option for anyone wanting something simple in a good location. You'll need to call to book — or let us know and we can sort it out for you!</p>
+        </div>
+        <div class="meta"><span data-en="7 rooms" data-gr="7 δωμάτια">7 rooms</span><span data-en="📍 Messolonghi" data-gr="📍 Μεσολόγγι">📍 Messolonghi</span></div>
+        <a class="btn outline" target="_blank" rel="noopener" href="https://alexandrastudio.gr/en/#rooms" data-en="View listing →" data-gr="Δείτε αγγελία →">View listing →</a>
+      </article>
+
+      <article class="card hover reveal stay-card">
+        <div class="stay-media">
+          <div class="stay-mini" id="mini-nos"></div>
+          <img class="stay-photo" src="assets/stay/nos.jpg" alt="" loading="lazy">
+        </div>
+        <div class="stay-head">
+          <span class="pill" data-en="Hotel" data-gr="Ξενοδοχείο">Hotel</span>
+          <span class="ptier" title="Price per night (out of 3)">€€<span class="off">€</span></span>
+        </div>
+        <h3 style="margin:12px 0 0" data-en="Nos Luxury Rooms" data-gr="Nos Luxury Rooms">Nos Luxury Rooms</h3>
+        <p class="stay-desc" data-en="Stylish 4-star rooms with sea views and balconies, a short walk from the lagoon." data-gr="Κομψά δωμάτια 4 αστέρων με θέα στη θάλασσα και μπαλκόνια, λίγα λεπτά από τη λιμνοθάλασσα.">Stylish 4-star rooms with sea views and balconies, a short walk from the lagoon.</p>
+        <div class="knr-note">
+          <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+          <p class="knr-text" data-en="Fun fact — the architect of this hotel taught me (K) how to draw pretty pictures." data-gr="Fun fact — ο αρχιτέκτονας αυτού του ξενοδοχείου έμαθε σ' εμένα (K) να ζωγραφίζω όμορφες εικόνες.">Fun fact — the architect of this hotel taught me (K) how to draw pretty pictures.</p>
+        </div>
+        <div class="meta"><span data-en="6 rooms" data-gr="6 δωμάτια">6 rooms</span><span data-en="📍 Messolonghi" data-gr="📍 Μεσολόγγι">📍 Messolonghi</span></div>
+        <a class="btn outline" target="_blank" rel="noopener" href="https://www.booking.com/hotel/gr/nos-luxury-rooms.en-gb.html" data-en="View listing →" data-gr="Δείτε αγγελία →">View listing →</a>
+      </article>
+
+      <article class="card hover reveal stay-card">
+        <div class="stay-media">
+          <div class="stay-mini" id="mini-mezzo"></div>
+          <img class="stay-photo" src="assets/stay/mezzo.jpg" alt="" loading="lazy">
+        </div>
+        <div class="stay-head">
+          <span class="pill" data-en="Hotel" data-gr="Ξενοδοχείο">Hotel</span>
+          <span class="ptier" title="Price per night (out of 3)">€€<span class="off">€</span></span>
+        </div>
+        <h3 style="margin:12px 0 0" data-en="Mezzo Lago" data-gr="Mezzo Lago">Mezzo Lago</h3>
+        <p class="stay-desc" data-en="A comfortable 3-star hotel in the centre of town, with room service and breakfast." data-gr="Ένα άνετο ξενοδοχείο 3 αστέρων στο κέντρο, με room service και πρωινό.">A comfortable 3-star hotel in the centre of town, with room service and breakfast.</p>
+        <div class="knr-note">
+          <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+          <p class="knr-text" data-en="Great location — Rhys's favourite bakery is a stone's throw away." data-gr="Υπέροχη τοποθεσία — ο αγαπημένος φούρνος του Rhys είναι δυο βήματα παραπέρα.">Great location — Rhys's favourite bakery is a stone's throw away.</p>
+        </div>
+        <div class="meta"><span data-en="7 rooms" data-gr="7 δωμάτια">7 rooms</span><span data-en="📍 Messolonghi Town Centre" data-gr="📍 Κέντρο Μεσολογγίου">📍 Messolonghi Town Centre</span></div>
+        <a class="btn outline" target="_blank" rel="noopener" href="https://www.booking.com/hotel/gr/mezzo-lago.en-gb.html" data-en="View listing →" data-gr="Δείτε αγγελία →">View listing →</a>
+      </article>
+
+      <article class="card hover reveal stay-card">
+        <div class="stay-media">
+          <div class="stay-mini" id="mini-grandblue"></div>
+          <img class="stay-photo" src="assets/stay/grandblue.jpg" alt="" loading="lazy">
+        </div>
+        <div class="stay-head">
+          <span class="pill" data-en="Boutique hotel" data-gr="Boutique ξενοδοχείο">Boutique hotel</span>
+          <span class="ptier" title="Price per night (out of 3)">€€€</span>
+        </div>
+        <h3 style="margin:12px 0 0" data-en="The Grand Blue Boutique Hotel" data-gr="The Grand Blue Boutique Hotel">The Grand Blue Boutique Hotel</h3>
+        <p class="stay-desc" data-en="A newly opened beachfront boutique hotel facing the lagoon, with sea-view rooms and balconies." data-gr="Ένα νεοανοιγμένο boutique ξενοδοχείο στην παραλία, με θέα στη λιμνοθάλασσα, δωμάτια με θέα και μπαλκόνια.">A newly opened beachfront boutique hotel facing the lagoon, with sea-view rooms and balconies.</p>
+        <div class="knr-note">
+          <span class="knr-label"><span class="hh">♡</span><span data-en="A note from K&amp;R" data-gr="Σημείωμα από τους K&amp;R">A note from K&amp;R</span></span>
+          <p class="knr-text" data-en="Newly opened with great views if you want a bit more of a luxurious stay — and look out for the flamingos in the salt farms!" data-gr="Νεοανοιγμένο με υπέροχη θέα αν θέλετε κάτι πιο πολυτελές — και προσέξτε τα φλαμίνγκο στις αλυκές!">Newly opened with great views if you want a bit more of a luxurious stay — and look out for the flamingos in the salt farms!</p>
+        </div>
+        <div class="meta"><span data-en="15 rooms" data-gr="15 δωμάτια">15 rooms</span><span data-en="📍 Messolonghi Water Front" data-gr="📍 Παραλία Μεσολογγίου">📍 Messolonghi Water Front</span></div>
+        <a class="btn outline" target="_blank" rel="noopener" href="https://www.booking.com/hotel/gr/the-grand-blue-boutique.en-gb.html" data-en="View listing →" data-gr="Δείτε αγγελία →">View listing →</a>
+      </article>
+
+    </div>
+
+    <div class="card reveal" style="margin-top:24px;border-style:dashed;text-align:center;color:var(--soft)">
+      <p class="script" style="font-family:var(--hand);font-size:1.3rem;color:var(--accent-ink)" data-en="These are just some of our recommendations — please check online for alternatives. Pricing out of 3 above is based on the area." data-gr="Αυτές είναι μόνο μερικές από τις προτάσεις μας — δείτε και online για εναλλακτικές. Η τιμή στα 3 παραπάνω βασίζεται στην περιοχή.">These are just some of our recommendations — please check online for alternatives. Pricing out of 3 above is based on the area.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STAY MAP -->
+<section class="section bg-2" data-screen-label="Stay — Map">
+  <div class="wrap">
+    <div class="section-label reveal"><h2 data-en="On the map" data-gr="Στον χάρτη">On the map</h2><span class="ln"></span></div>
+    <div class="map-shell reveal"><div id="stay-map" class="leaflet-map" style="height:clamp(420px,60vh,640px)"></div></div>
+    <p class="center" style="color:var(--soft);font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;margin-top:18px" data-en="★ = where we'll be (Aitoliko) · ♦ = where to stay · click any pin for details &amp; booking" data-gr="★ = εκεί θα είμαστε (Αιτωλικό) · ♦ = πού να μείνετε · κάντε κλικ σε πινέζα για λεπτομέρειες &amp; κράτηση">★ = where we'll be (Aitoliko) · ♦ = where to stay · click any pin for details &amp; booking</p>
+  </div>
+</section>
+
+<!-- HELP -->
+<section class="section center" data-screen-label="Stay — Help">
+  <div class="wrap reveal">
+    <div class="orn"><span class="line"></span><span class="heart">♡</span><span class="line"></span></div>
+    <h2 style="margin:20px 0 10px" data-en="Not sure where to book?" data-gr="Δεν ξέρετε πού να κλείσετε;">Not sure where to book?</h2>
+    <p class="lead" style="margin:0 auto 28px" data-en="Tell us your group size and budget and we'll happily point you to the right spot — or help coordinate a villa share with other guests." data-gr="Πείτε μας πόσα άτομα είστε και τον προϋπολογισμό σας και θα σας προτείνουμε το σωστό μέρος — ή θα σας βοηθήσουμε να μοιραστείτε βίλα με άλλους καλεσμένους.">Tell us your group size and budget and we'll happily point you to the right spot — or help coordinate a villa share with other guests.</p>
+    <a href="faq.html" class="btn ink" data-en="Read the FAQ →" data-gr="Διαβάστε τις Ερωτήσεις →">Read the FAQ →</a>
+  </div>
+</section>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+  // Approximate locations — refine if needed
+  var WEDDING=[38.434,21.353];
+  var STAYS=[
+    {id:'mini-alexandra', ll:[38.37233,21.42985], en:'Alexandra Studio', gr:'Alexandra Studio', type_en:'Studios', type_gr:'Στούντιο', url:'https://alexandrastudio.gr/en/#rooms'},
+    {id:'mini-nos',       ll:[38.36760,21.42830], en:'Nos Luxury Rooms', gr:'Nos Luxury Rooms', type_en:'Hotel', type_gr:'Ξενοδοχείο', url:'https://www.booking.com/hotel/gr/nos-luxury-rooms.en-gb.html'},
+    {id:'mini-mezzo',     ll:[38.36870,21.43040], en:'Mezzo Lago', gr:'Mezzo Lago', type_en:'Hotel', type_gr:'Ξενοδοχείο', url:'https://www.booking.com/hotel/gr/mezzo-lago.en-gb.html'},
+    {id:'mini-grandblue', ll:[38.37119,21.42250], en:'The Grand Blue Boutique Hotel', gr:'The Grand Blue Boutique Hotel', type_en:'Boutique hotel', type_gr:'Boutique ξενοδοχείο', url:'https://www.booking.com/hotel/gr/the-grand-blue-boutique.en-gb.html'}
+  ];
+  function pin(glyph, big){ return L.divIcon({ className:'', html:'<div class="map-pin"'+(big?' style="width:50px;height:50px;background:var(--accent-ink)"':'')+'><span'+(big?' style="font-size:1.3rem"':'')+'>'+glyph+'</span></div>', iconSize:big?[50,50]:[40,40], iconAnchor:big?[10,46]:[8,38], popupAnchor:big?[15,-42]:[12,-34] }); }
+  var TILES='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+  var TILEOPTS={attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19};
+
+  function init(){
+    if(typeof L==='undefined') return;
+
+    // Per-card mini maps (non-interactive snippet with a pin)
+    STAYS.forEach(function(s){
+      var el=document.getElementById(s.id);
+      if(!el) return;
+      var m=L.map(el,{zoomControl:false,attributionControl:false,dragging:false,scrollWheelZoom:false,doubleClickZoom:false,boxZoom:false,keyboard:false,touchZoom:false,tap:false}).setView(s.ll,15);
+      L.tileLayer(TILES,TILEOPTS).addTo(m);
+      L.marker(s.ll,{icon:pin('♦'),interactive:false}).addTo(m);
+      setTimeout(function(){ m.invalidateSize(); m.setView(s.ll,15); },200);
+    });
+
+    // Overview map
+    var map=L.map('stay-map',{scrollWheelZoom:false}).setView([38.40,21.39],12);
+    L.tileLayer(TILES,TILEOPTS).addTo(map);
+
+    L.marker(WEDDING,{icon:pin('★',true),zIndexOffset:1000}).addTo(map).bindPopup(
+      '<div class="pop"><h4>'+KR.t("Where we'll be","Εκεί θα είμαστε")+'</h4><div class="gr">'+KR.t('Aitoliko','Αιτωλικό')+'</div></div>');
+
+    STAYS.forEach(function(s){
+      L.marker(s.ll,{icon:pin('♦')}).addTo(map).bindPopup(
+        '<div class="pop"><h4>'+KR.t(s.en,s.gr)+'</h4>'+
+        '<p>'+KR.t(s.type_en,s.type_gr)+'</p>'+
+        '<a target="_blank" rel="noopener" href="'+s.url+'">'+KR.t('View listing →','Δείτε αγγελία →')+'</a></div>');
+    });
+
+    map.fitBounds(L.latLngBounds(STAYS.map(function(s){return s.ll;}).concat([WEDDING])).pad(0.2));
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+</body>
+</html>
