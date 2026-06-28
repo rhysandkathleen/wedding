@@ -118,12 +118,15 @@
 <script src="assets/site.js"></script>
 <script>
 /* =====================================================================
-   RSVP → GOOGLE SHEET
-   To make this write to your sheet, deploy the Apps Script in
-   SETUP-google-sheets.md as a Web App and paste its URL below.
-   Until then the form still works and saves answers in the browser.
+   RSVP → EMAIL (via Web3Forms)
+   SETUP (one step):
+   1. Go to https://web3forms.com, enter your email, copy the Access Key.
+   2. Paste it between the quotes below.
+   That's it — every RSVP will be emailed to you. No spreadsheet needed.
+   (Until a key is added, the form still works and saves answers in the
+   browser as a backup.)
    ===================================================================== */
-const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwVMZ4LvUMP4uTuXZYeWAUpDmZWdPqdljPzy2weZ9Sd4HUholsY25BBdfTaJVKbfBR3/exec'; // ← Apps Script Web App URL
+const ACCESS_KEY = '6f840263-3f21-4199-97a8-13ebff86d473'; // ← Web3Forms access key
 
 (function(){
   const form = document.getElementById('rsvp-form');
@@ -203,14 +206,19 @@ const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwVMZ4LvUMP4uTuX
     submitBtn.disabled = true;
     status.textContent = KR.t('Sending…','Αποστολή…');
 
-    if (SHEET_ENDPOINT) {
+    if (ACCESS_KEY) {
       try {
-        await fetch(SHEET_ENDPOINT, {
-          method:'POST', mode:'no-cors',
-          headers:{'Content-Type':'application/x-www-form-urlencoded'},
-          body: new URLSearchParams(data).toString()
+        await fetch('https://api.web3forms.com/submit', {
+          method:'POST',
+          headers:{'Content-Type':'application/json', 'Accept':'application/json'},
+          body: JSON.stringify({
+            access_key: ACCESS_KEY,
+            subject: 'Wedding RSVP — ' + data.name + ' (' + data.attending + ')',
+            from_name: 'Kathleen & Rhys RSVP',
+            ...data
+          })
         });
-      } catch(err){ /* no-cors: we can't read the result; local backup covers us */ }
+      } catch(err){ /* local backup covers us if the network fails */ }
     }
 
     status.textContent = '';
