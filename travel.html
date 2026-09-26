@@ -165,7 +165,7 @@
   function init(){
     if(typeof L==='undefined') return;
     var map=L.map('travel-map',{scrollWheelZoom:false}).setView([38.6,21.3],7);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19}).addTo(map);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=cb1_3m4r_1_649f99848cdd6b38da8caff5',{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19}).addTo(map);
 
     var aitoliko=[38.434,21.353];
     var places=[
