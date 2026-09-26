@@ -202,7 +202,7 @@
     if(typeof L==='undefined'){ return; }
     var ceremony=[38.41278,21.37064], venue=[38.59886,21.41886], base=[38.43470,21.35170];
     var map=L.map('venue-map',{scrollWheelZoom:false,zoomControl:true}).setView([38.50,21.40],11);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=cb1_3m4r_1_649f99848cdd6b38da8caff5',{
       attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:19
     }).addTo(map);
     L.marker(base,{icon:pin('★'),zIndexOffset:1000}).addTo(map).bindPopup(
